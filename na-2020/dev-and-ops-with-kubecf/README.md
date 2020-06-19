@@ -88,9 +88,10 @@ If you can see the versions for both the commands, then you are good to go ahead
 * Install cf-operator and Kubecf
 ```
 kubectl create ns cf-operator
-helm install cf-operator --namespace cf-operator \
---set "global.operator.watchNamespace=kubecf" \
-https://github.com/cloudfoundry-incubator/quarks-operator/releases/download/v4.5.6/cf-operator-4.5.6+0.gffc6f942.tgz 
+helm repo add quarks https://cloudfoundry-incubator.github.io/quarks-helm/
+helm install quarks/cf-operator --version 4.5.6+0.gffc6f942 \
+--namespace cf-operator \
+--set "global.operator.watchNamespace=kubecf"
 ```
 ```
 helm install kubecf --namespace kubecf \
